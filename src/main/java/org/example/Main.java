@@ -58,6 +58,6 @@ public class Main {
     }
 
     public static String generatePassword() {
-        return "fHf&d23Kl$";
+        return "aB$hs45lk1";
     }
 }

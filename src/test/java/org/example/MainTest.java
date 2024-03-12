@@ -117,4 +117,13 @@ class MainTest {
         Assertions.assertFalse(actual);
     }
 
+    @Test
+    void generatePassword_shouldReturnTrue_whenCalled() {
+        //WHEN
+        String actual = Main.generatePassword();
+        //THEN
+        Assertions.assertTrue(Main.checkLength(actual) && Main.hasDigit(actual) && Main.checkCases(actual) && Main.checkCommon(actual) && Main.checkSpecial(actual));
+    }
+
+
 }
