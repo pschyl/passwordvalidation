@@ -1,18 +1,30 @@
 package org.example;
 
+import java.util.Arrays;
+import java.util.concurrent.ThreadLocalRandom;
+
 public class Main {
+
+    //Global variables and arrays
     public static int MIN_LENGTH = 8;
     public static String[] COMMON_PASSWORDS = {"Password1", "qwertzU1", "Aa345678"};
     public static String[] SPECIALS = {"!", "§", "$", "%", "&", "/", "(", ")", "=", "?", "+", "*", "#", "-", "_", "<", ">", "@"};
-
+    public static String[] DIGITS = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"};
+    public static String[] CHARS_LOWER = {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"};
+    public static String[] CHARS_UPPER = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
     public static void main(String[] args) {
 
-        String test_password = "qwertzU4";
+        //check methods
+        String test_password = "qwertz&U4";
         System.out.println(checkLength(test_password));
         System.out.println(hasDigit(test_password));
         System.out.println(checkCases(test_password));
         System.out.println(checkCommon(test_password));
         System.out.println(checkSpecial(test_password));
+
+        //generate password
+        String password = generatePassword();
+        System.out.println(password);
     }
 
     public static boolean checkLength(String password) {
@@ -23,9 +35,8 @@ public class Main {
     }
 
     public static boolean hasDigit(String password) {
-        String[] digits = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"};
-        for (int i = 0; i < digits.length; i++) {
-            if (password.contains(digits[i])) {
+        for (int i = 0; i < DIGITS.length; i++) {
+            if (password.contains(DIGITS[i])) {
                 return true;
             }
         }
@@ -57,7 +68,28 @@ public class Main {
         return false;
     }
 
+    public static String getRandomFromArray(String[] array) {
+        int random = ThreadLocalRandom.current().nextInt(array.length);
+        return array[random];
+    }
+
     public static String generatePassword() {
-        return "aB$hs45lk1";
+        String[] proto_array = new String[MIN_LENGTH];
+        proto_array[0] = getRandomFromArray(CHARS_LOWER);
+        proto_array[1] = getRandomFromArray(CHARS_UPPER);
+        proto_array[2] = getRandomFromArray(DIGITS);
+        proto_array[3] = getRandomFromArray(SPECIALS);
+
+        for (int i = 4; i < proto_array.length; i++) {
+            proto_array[i] = getRandomFromArray(DIGITS);
+        }
+
+        String password = "";
+
+        for (int i = 0; i < proto_array.length; i++) {
+            password = password + proto_array[i];
+        }
+
+        return password;
     }
 }
