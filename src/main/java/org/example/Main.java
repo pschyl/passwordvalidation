@@ -1,12 +1,16 @@
 package org.example;
 
 public class Main {
+    public static int MIN_LENGTH = 8;
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        checkLength("abcdefgh");
     }
 
     public static boolean checkLength(String password) {
-
+        if (password.length() >= MIN_LENGTH) {
+            System.out.println(password.length());
+            return true;
+        }
         return false;
     }
 
