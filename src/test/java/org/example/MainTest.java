@@ -97,4 +97,24 @@ class MainTest {
         Assertions.assertFalse(actual);
     }
 
+    @Test
+    void checkSpecial_shouldReturnTrue_whenCalledWith_pa$$word() {
+        //GIVEN
+        String input = "pa$$word";
+        //WHEN
+        boolean actual = Main.checkSpecial(input);
+        //THEN
+        Assertions.assertTrue(actual);
+    }
+
+    @Test
+    void checkSpecial_shouldReturnFalse_whenCalledWith_password() {
+        //GIVEN
+        String input = "password";
+        //WHEN
+        boolean actual = Main.checkSpecial(input);
+        //THEN
+        Assertions.assertFalse(actual);
+    }
+
 }
