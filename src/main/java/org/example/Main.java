@@ -4,8 +4,10 @@ public class Main {
     public static int MIN_LENGTH = 8;
     public static void main(String[] args) {
 
-        System.out.println(checkLength("abcdefgh"));
-        System.out.println(hasDigit("acdfgh"));
+        String test_password = "ABCDEFGHt";
+        System.out.println(checkLength(test_password));
+        System.out.println(hasDigit(test_password));
+        System.out.println(checkCases(test_password));
     }
 
     public static boolean checkLength(String password) {
@@ -26,8 +28,10 @@ public class Main {
     }
 
     public static boolean checkCases(String password) {
-
-        return false;
+        if (password.equals(password.toLowerCase()) || password.equals(password.toUpperCase())) {
+            return false;
+        }
+        return true;
     }
 
     public static boolean checkCommon(String password) {
