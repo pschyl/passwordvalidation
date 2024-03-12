@@ -17,4 +17,14 @@ class MainTest {
         Assertions.assertTrue(actual);
     }
 
+    @Test
+    void checkLength_shouldReturnFalse_whenCalledWith_abcdef() {
+        //GIVEN
+        String input = "abcdef";
+        //WHEN
+        boolean actual = Main.checkLength(input);
+        //THEN
+        Assertions.assertFalse(actual);
+    }
+
 }
