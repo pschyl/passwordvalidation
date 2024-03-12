@@ -6,11 +6,12 @@ public class Main {
 
     public static void main(String[] args) {
 
-        String test_password = "qwertzU4";
+        String test_password = "qwertzU4&";
         System.out.println(checkLength(test_password));
         System.out.println(hasDigit(test_password));
         System.out.println(checkCases(test_password));
         System.out.println(checkCommon(test_password));
+        System.out.println(checkSpecial(test_password));
     }
 
     public static boolean checkLength(String password) {
@@ -44,5 +45,15 @@ public class Main {
             }
         }
         return true;
+    }
+
+    public static boolean checkSpecial(String password) {
+        String[] specials = {"!", "§", "$", "%", "&", "/", "(", ")", "=", "?", "+", "*", "#", "-", "_", "<", ">", "@"};
+        for (int i = 0; i < specials.length; i++) {
+            if (password.contains(specials[i])) {
+                return true;
+            }
+        }
+        return false;
     }
 }
