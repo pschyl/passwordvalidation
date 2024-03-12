@@ -47,4 +47,34 @@ class MainTest {
         Assertions.assertFalse(actual);
     }
 
+    @Test
+    void checkCases_shouldReturnTrue_whenCalledWith_aBcdef() {
+        //GIVEN
+        String input = "aBcdef";
+        //WHEN
+        boolean actual = Main.checkCases(input);
+        //THEN
+        Assertions.assertTrue(actual);
+    }
+
+    @Test
+    void checkCases_shouldReturnFalse_whenCalledWith_abcdef() {
+        //GIVEN
+        String input = "abcdef";
+        //WHEN
+        boolean actual = Main.checkCases(input);
+        //THEN
+        Assertions.assertFalse(actual);
+    }
+
+    @Test
+    void checkCases_shouldReturnFalse_whenCalledWith_ABCDEF() {
+        //GIVEN
+        String input = "ABCDEF";
+        //WHEN
+        boolean actual = Main.checkCases(input);
+        //THEN
+        Assertions.assertFalse(actual);
+    }
+
 }
