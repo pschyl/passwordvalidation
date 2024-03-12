@@ -56,4 +56,8 @@ public class Main {
         }
         return false;
     }
+
+    public static String generatePassword() {
+        return "fHf&d23Kl$";
+    }
 }
