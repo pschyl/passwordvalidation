@@ -2,12 +2,15 @@ package org.example;
 
 public class Main {
     public static int MIN_LENGTH = 8;
+    public static String[] COMMON_PASSWORDS = {"Password1", "qwertzU1", "Aa345678"};
+
     public static void main(String[] args) {
 
-        String test_password = "ABCDEFGHt";
+        String test_password = "qwertzU4";
         System.out.println(checkLength(test_password));
         System.out.println(hasDigit(test_password));
         System.out.println(checkCases(test_password));
+        System.out.println(checkCommon(test_password));
     }
 
     public static boolean checkLength(String password) {
@@ -35,7 +38,11 @@ public class Main {
     }
 
     public static boolean checkCommon(String password) {
-
-        return false;
+        for (int i = 0; i < COMMON_PASSWORDS.length; i++) {
+            if (password.equals(COMMON_PASSWORDS[i])) {
+                return false;
+            }
+        }
+        return true;
     }
 }
