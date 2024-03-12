@@ -77,4 +77,24 @@ class MainTest {
         Assertions.assertFalse(actual);
     }
 
+    @Test
+    void checkCommon_shouldReturnTrue_whenCalledWith_ajH37pH43() {
+        //GIVEN
+        String input = "ajH37pH43";
+        //WHEN
+        boolean actual = Main.checkCommon(input);
+        //THEN
+        Assertions.assertTrue(actual);
+    }
+
+    @Test
+    void checkCommon_shouldReturnFalse_whenCalledWith_Password1() {
+        //GIVEN
+        String input = "Password1";
+        //WHEN
+        boolean actual = Main.checkCommon(input);
+        //THEN
+        Assertions.assertFalse(actual);
+    }
+
 }
