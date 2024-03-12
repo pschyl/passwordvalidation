@@ -3,10 +3,11 @@ package org.example;
 public class Main {
     public static int MIN_LENGTH = 8;
     public static String[] COMMON_PASSWORDS = {"Password1", "qwertzU1", "Aa345678"};
+    public static String[] SPECIALS = {"!", "§", "$", "%", "&", "/", "(", ")", "=", "?", "+", "*", "#", "-", "_", "<", ">", "@"};
 
     public static void main(String[] args) {
 
-        String test_password = "qwertzU4&";
+        String test_password = "qwertzU4";
         System.out.println(checkLength(test_password));
         System.out.println(hasDigit(test_password));
         System.out.println(checkCases(test_password));
@@ -48,9 +49,8 @@ public class Main {
     }
 
     public static boolean checkSpecial(String password) {
-        String[] specials = {"!", "§", "$", "%", "&", "/", "(", ")", "=", "?", "+", "*", "#", "-", "_", "<", ">", "@"};
-        for (int i = 0; i < specials.length; i++) {
-            if (password.contains(specials[i])) {
+        for (int i = 0; i < SPECIALS.length; i++) {
+            if (password.contains(SPECIALS[i])) {
                 return true;
             }
         }
